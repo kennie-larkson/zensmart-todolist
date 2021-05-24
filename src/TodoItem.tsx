@@ -1,31 +1,17 @@
 import React from "react";
 
 type ItemProps = {
-  item: {
-    text: string;
-    done: boolean;
-  };
-  onclick: () => void;
+  text: string;
+  styling: string;
+  onclick?: () => void;
 };
 
-function TodoItem({ item, onclick }: ItemProps) {
-  const { text, done } = item;
-  
-  
-
-  if (done) {
-    return (
-      <div className="btn-done">
-        <button>{text}</button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <button className="btn-undone" onClick={onclick}>{text}</button>
-      </div>
-    );
-  }
+function TodoItem({ styling, text, onclick }: ItemProps) {
+  return (
+    <button className={styling} onClick={onclick}>
+      {text}
+    </button>
+  );
 }
 
 export default TodoItem;
