@@ -24,6 +24,18 @@
   color: white;
 }
 
+.todo-list {
+  display: flex;
+  background-color: darkorchid ;
+  padding: 5rem;
+  
+}
+
+.btn-done, .btn-undone {
+  margin: 2em;
+  padding: 2em;
+}
+
 .App-link {
   color: #61dafb;
 }

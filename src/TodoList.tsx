@@ -1,48 +1,24 @@
 import React from "react";
+import TodoItem from "./TodoItem";
+
 
 type TodoListProps = {
-  item: {
+  items: {
     text: string;
     done: boolean;
-  };
+  }[];
   onclick: () => void;
 };
 
-const TodoList = ({ item, onclick }: TodoListProps) => {
-  const { text, done } = item;
-  const doneTask = (
-    <button
-      style={{
-        margin: "1rem",
-        padding: "1rem",
-        backgroundColor: "blue",
-        border: "none",
-        fontSize: "20px",
-      }}
-    >
-      <div>{text}</div>
-    </button>
-  );
-
-  const undoneTask = (
-    <button
-      onClick={onclick}
-      style={{
-        margin: "1rem",
-        padding: "1rem",
-        backgroundColor: "red",
-        border: "none",
-        fontSize: "20px",
-      }}
-    >
-      <div>{text}</div>
-    </button>
-  );
+const TodoList = ({ items, onclick }: TodoListProps) => {
   return (
-    <div >
-      {done ? doneTask : undoneTask}
+    <div className="todo-list">
+      {items.map((item, index) => (
+        <TodoItem key={index} item={item} onclick={onclick} />
+      ))}
     </div>
   );
+  
 };
 
 export default TodoList;

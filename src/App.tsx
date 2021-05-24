@@ -33,11 +33,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {todoItems.map((item, index) => {
-          console.log(item);
-
-          return <TodoList key={index} item={item} onclick={onItemClick} />;
-        })}
+        <div>{<TodoList items={todoItems} onclick={onItemClick} />}</div>
       </header>
     </div>
   );
